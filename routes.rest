@@ -6,3 +6,36 @@ GET http://localhost:3000/ HTTP/1.1
 
 ### get all students
 GET http://localhost:3000/students HTTP/1.1
+
+### get one student
+GET http://localhost:3000/students/698a95c9933075f23433f648 
+
+### create a student
+POST http://localhost:3000/students HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Delete",
+    "lastName": "This",
+    "email": "nope@dontwanna.com",
+    "age": 64,
+    "currentCollege": "TTech"
+}
+
+### update a student
+PUT http://localhost:3000/students/698bd3b15bf01cb354b9caa5
+Content-Type: application/json
+
+{
+    "firstName": "WHY",
+    "lastName": "ME",
+    "email": "nope@dontwanna.com",
+    "age": 64,
+    "currentCollege": "TTech"
+}
+
+### delete a student
+ DELETE http://localhost:3000/students/698bd1475bf01cb354b9caa4
+
+
+

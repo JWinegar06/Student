@@ -1,6 +1,6 @@
 const { response } = require("express");
 const mongodb = require("../db/connect");
-const { Admin } = require("mongodb");
+const { Admin }  = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 
 const awesomeFunction = (req, res, next) => {

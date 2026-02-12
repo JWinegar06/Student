@@ -1,6 +1,6 @@
 const { response } = require("express");
 const mongodb = require("../db/connect");
-const { Admin }  = require("mongodb");
+const { Admin } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 
 const awesomeFunction = (req, res, next) => {
@@ -13,7 +13,7 @@ const tooeleTechFunction = (req, res, next) => {
 
 const adminFunction = (req, res, next) => {
   res.json("Admin");
-}
+};
 
 //Get all students
 const getAllStudents = async (req, res) => {
@@ -23,7 +23,7 @@ const getAllStudents = async (req, res) => {
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(lists);
     });
-  } catch(error) {
+  } catch (error) {
     res.status(500).json(error);
   }
 };
@@ -41,9 +41,9 @@ const getSingleStudent = async (req, res) => {
       res.setHeader("Content-Type", "application/json");
       res.status(200).json(lists[0]);
     });
-  } catch(error) {
+  } catch (error) {
     res.status(500).json(error);
- }
+  }
 };
 
 //Create contact
@@ -66,12 +66,11 @@ const createStudent = async (req, res) => {
       res.status(201).json(response);
     } else {
       res
-       .status(500)
-       .json(
-        response.error || "Some error occurred while creating the student."
-       );
-    } 
-  
+        .status(500)
+        .json(
+          response.error || "Some error occurred while creating the student.",
+        );
+    }
   } catch (error) {
     res.status(500).json(error);
   }
@@ -119,7 +118,7 @@ const deleteStudent = async (req, res) => {
       .collection("students")
       .deleteOne({ _id: userId }, true);
     console.log(response);
-     if (response.acknowledged) {
+    if (response.acknowledged) {
       res.status(200).send(response);
     } else {
       res
@@ -131,14 +130,15 @@ const deleteStudent = async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
- };
+};
 
-module.exports = { awesomeFunction, 
-                   tooeleTechFunction, 
-                   getAllStudents, 
-                   getSingleStudent, 
-                   createStudent, 
-                   updateStudent, 
-                   deleteStudent,
-                   adminFunction,
-                  };
+module.exports = {
+  awesomeFunction,
+  tooeleTechFunction,
+  getAllStudents,
+  getSingleStudent,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+  adminFunction,
+};
